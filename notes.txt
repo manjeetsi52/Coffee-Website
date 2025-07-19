@@ -1,0 +1,43 @@
+//overlay blur effect
+
+body.show-mobile-menu header::before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(5px);
+  }
+
+### 💡 What is `::before`?
+* It creates an **extra box** (pseudo-element) **before** the real content of `header`.
+* Think of it like a ghost element layered on top of the page.
+* But by default, it’s invisible unless you tell it **what to show** using `content`.
+
+#### `content: ""`
+
+* This **activates** the `::before` element.
+* Even though it's empty (`""`), it’s now a real visual element.
+* Without `content`, the `::before` won’t render at all.
+
+🔸 Think of it like saying: **"Show an invisible box."**
+
+#### `position: fixed`
+* This makes the box **stick to the screen**, not just the header.
+* It doesn’t scroll — it's **fixed in place**.
+
+🔸 Like sticking a sticker to your phone screen — it stays still even when the page scrolls.
+
+#### `left: 0` and `top: 0`
+* This says: **Start the box at the top-left corner** of the screen (or viewport).
+* It’s the anchor point.
+
+#### `width: 100%` and `height: 100%`
+* This makes the box cover **100% of the screen** (full width and height).
+🔸 So now, you have an invisible full-screen layer on top of everything.
+
+#### `backdrop-filter: blur(5px)`
+* This blurs **whatever is behind the box** — not the box itself.
+* Result: Everything behind the menu becomes frosted or blurry.
+
